@@ -1,0 +1,18 @@
+### createRoutine
+POST http://localhost:8080/routines
+Content-Type: application/json
+
+{
+    "title":"title-1",
+    "content":"content-1",
+    "alarmTime": "12:00",
+    "alarmYn": "Y",
+    "startDate": "2024-01-05",
+    "endDate": "9999-12-31"
+}
+
+### getRoutine
+GET http://localhost:8080/routines/1
+
+### getRoutines
+GET http://localhost:8080/routines?page=1
