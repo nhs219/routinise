@@ -1,0 +1,10 @@
+### signup
+
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "phone": "01012341234",
+  "password": "ㅂ111",
+  "nickname": "test"
+}
