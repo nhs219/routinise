@@ -1,1 +1,0 @@
-INSERT INTO user (uuid, nickName, phone, password) VALUES ('uuid-1234', 'testNick', '01012341234', 'pass1234')
