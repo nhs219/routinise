@@ -1,12 +1,14 @@
 package com.routinise.service;
 
 import com.routinise.domain.Role;
+import com.routinise.domain.User;
 import com.routinise.repository.UserRepository;
 import com.routinise.request.UserCreate;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +20,9 @@ class AuthServiceImplTest {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Test
     void signup() {

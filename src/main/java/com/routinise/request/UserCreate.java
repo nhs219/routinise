@@ -3,12 +3,13 @@ package com.routinise.request;
 import com.routinise.domain.Role;
 import com.routinise.domain.User;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
-@Setter
+@Setter @Getter
 public class UserCreate {
     @NotBlank(message = "닉네임을 입력해주세요.")
     private String nickname;
@@ -24,6 +25,7 @@ public class UserCreate {
     public UserCreate() {
     }
 
+    @Builder
     public UserCreate(String nickname, String phone, String password, Role role) {
         this.nickname = nickname;
         this.phone = phone;
