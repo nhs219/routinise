@@ -1,5 +1,6 @@
 package com.routinise.domain;
 
+import com.routinise.request.LoginResponse;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -43,5 +44,13 @@ public class User {
         this.phone = phone;
         this.password = password;
         this.role = role;
+    }
+
+    public LoginResponse makeLoginResponse(String token) {
+        return LoginResponse.builder()
+                .nickName(nickname)
+                .role(role)
+                .token(token)
+                .build();
     }
 }
