@@ -1,12 +1,11 @@
 package com.routinise.service;
 
 import com.routinise.request.Login;
-import com.routinise.request.LoginResponse;
-import com.routinise.request.UserCreate;
-import org.springframework.http.ResponseEntity;
+import com.routinise.response.LoginResponse;
+import com.routinise.request.Signup;
 
 public interface AuthService {
-    void signup(UserCreate userCreate);
+    void signup(Signup userCreate);
 
     LoginResponse login(Login login);
 }

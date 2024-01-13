@@ -1,6 +1,7 @@
-package com.routinise.config;
+package com.routinise.security;
 
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,16 +33,25 @@ public class JwtTokenProvider {
     @Value("${issuer}")
     private String issuer;
 
-    public String createToken(String userId) {
+    public String createToken(String userSpecification) {
         SecretKey key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
 
         return Jwts.builder()
-                .signWith(key)
-                .setSubject(userId)
+                .signWith(new SecretKeySpec(secretKey.getBytes(), SignatureAlgorithm.HS512.getJcaName()))
+                .setSubject(userSpecification)
                 .setIssuer(issuer)  // JWT 토큰 발급자
                 .setIssuedAt(Timestamp.valueOf(LocalDateTime.now()))    // JWT 토큰 발급 시간
                 .setExpiration(Date.from(Instant.now().plus(expirationHours, ChronoUnit.HOURS)))    // JWT 토큰 만료 시간
                 .compact(); // JWT 토큰 생성
+    }
+
+    public String validateTokenAndGetSubject(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(secretKey.getBytes())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
     }
 
 }
