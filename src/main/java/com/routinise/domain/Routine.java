@@ -1,26 +1,21 @@
 package com.routinise.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.routinise.response.RoutineResponse;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@EntityListeners(AuditingEntityListener.class)
-public class Routine {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Routine extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,12 +35,6 @@ public class Routine {
     private LocalDate startDate;
 
     private LocalDate endDate;
-
-    @CreatedDate
-    private LocalDateTime createdDateTime;
-
-    @LastModifiedDate
-    private LocalDateTime updatedDateTime;
 
     @Builder
     public Routine(String title, String content, String userSeq, String week, String alarmTime, String alarmYn, String startDate, String endDate){
