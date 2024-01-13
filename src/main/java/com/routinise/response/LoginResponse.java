@@ -1,4 +1,4 @@
-package com.routinise.request;
+package com.routinise.response;
 
 import com.routinise.domain.Role;
 import lombok.Builder;

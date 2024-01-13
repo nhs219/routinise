@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Setter @Getter
-public class UserCreate {
+public class Signup {
     @NotBlank(message = "닉네임을 입력해주세요.")
     private String nickname;
 
@@ -22,11 +22,11 @@ public class UserCreate {
 
     private Role role;
 
-    public UserCreate() {
+    public Signup() {
     }
 
     @Builder
-    public UserCreate(String nickname, String phone, String password, Role role) {
+    public Signup(String nickname, String phone, String password, Role role) {
         this.nickname = nickname;
         this.phone = phone;
         this.password = password;

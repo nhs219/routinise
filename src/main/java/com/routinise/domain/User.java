@@ -1,6 +1,6 @@
 package com.routinise.domain;
 
-import com.routinise.request.LoginResponse;
+import com.routinise.response.LoginResponse;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.UUID;
