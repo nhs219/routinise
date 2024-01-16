@@ -1,8 +1,12 @@
 package com.routinise.domain;
 
 import com.routinise.response.LoginResponse;
+import com.routinise.response.UserResponse;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
@@ -39,6 +43,16 @@ public class User extends BaseTimeEntity{
                 .nickName(nickname)
                 .role(role)
                 .token(token)
+                .build();
+    }
+
+    public UserResponse makeUserResponse() {
+        return UserResponse.builder()
+                .nickName(nickname)
+                .phone(phone)
+                .role(role)
+                .createdDate(this.getCreatedDateTime())
+                .updatedDate(this.getUpdatedDateTime())
                 .build();
     }
 }

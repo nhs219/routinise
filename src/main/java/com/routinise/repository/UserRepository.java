@@ -9,4 +9,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     int countByPhone(String phone);
 
     Optional<User> findByPhone(String phone);
+
+    Optional<User> findByUuid(String uuid);
 }
