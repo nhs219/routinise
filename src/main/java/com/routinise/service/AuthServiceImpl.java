@@ -1,5 +1,6 @@
 package com.routinise.service;
 
+import com.routinise.exception.Duplicate;
 import com.routinise.security.JwtTokenProvider;
 import com.routinise.domain.User;
 import com.routinise.repository.UserRepository;
@@ -24,7 +25,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void signup(Signup userCreate) {
         if (userRepository.countByPhone(userCreate.getPhone()) > 0) {
-            throw new IllegalArgumentException("이미 가입된 아이디입니다.");
+            throw new Duplicate("이미 가입된 아이디입니다.");
         }
 
         userRepository.save(userCreate.makeUser(passwordEncoder));

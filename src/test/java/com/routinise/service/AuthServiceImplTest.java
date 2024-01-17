@@ -1,26 +1,15 @@
 package com.routinise.service;
 
 import com.routinise.domain.Role;
-import com.routinise.domain.User;
 import com.routinise.repository.UserRepository;
 import com.routinise.request.Login;
-import com.routinise.request.UserCreate;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
-import lombok.extern.java.Log;
-import org.assertj.core.api.Assertions;
+import com.routinise.request.Signup;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.crypto.SecretKey;
-
-import java.util.Base64;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class AuthServiceImplTest {
@@ -38,7 +27,7 @@ class AuthServiceImplTest {
 
     @Test
     void signup() {
-        UserCreate userCreate = UserCreate.builder()
+        Signup userCreate = Signup.builder()
                 .nickname("nick-test")
                 .phone("01012345678")
                 .password("1234")
@@ -52,7 +41,7 @@ class AuthServiceImplTest {
 
     @Test
     void signup_duplicate_exception() {
-        UserCreate userCreate = UserCreate.builder()
+        Signup userCreate = Signup.builder()
                 .nickname("nick-test")
                 .phone("01012345678")
                 .password("1234")
@@ -67,7 +56,7 @@ class AuthServiceImplTest {
 
     @Test
     void login() {
-        UserCreate userCreate = UserCreate.builder()
+        Signup userCreate = Signup.builder()
                 .nickname("nick-test")
                 .phone("01012345678")
                 .password("1234")
@@ -86,7 +75,7 @@ class AuthServiceImplTest {
 
     @Test
     void login_exception() {
-        UserCreate userCreate = UserCreate.builder()
+        Signup userCreate = Signup.builder()
                 .nickname("nick-test")
                 .phone("01012345678")
                 .password("1234")
