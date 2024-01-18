@@ -34,7 +34,7 @@ public class JwtTokenProvider {
     private String issuer;
 
     public String createToken(String userSpecification) {
-        SecretKey key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
+//        SecretKey key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
 
         return Jwts.builder()
                 .signWith(new SecretKeySpec(secretKey.getBytes(), SignatureAlgorithm.HS512.getJcaName()))

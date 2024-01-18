@@ -5,6 +5,29 @@ Content-Type: application/json
 
 {
   "phone": "01012341234",
-  "password": "ㅂ111",
-  "nickname": "test"
+  "password": "Password123",
+  "nickname": "test",
+  "role": "USER"
+}
+
+### signup2
+
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "phone": "01012341235",
+  "password": "Passwo123",
+  "nickname": "test2",
+  "role": "USER"
+}
+
+### login
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "phone": "01012341235",
+  "password": "Passwo123"
 }

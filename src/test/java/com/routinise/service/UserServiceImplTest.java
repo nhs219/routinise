@@ -6,11 +6,12 @@ import com.routinise.exception.NotFound;
 import com.routinise.repository.UserRepository;
 import com.routinise.response.UserResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -52,6 +53,11 @@ class UserServiceImplTest {
         assertThatThrownBy(
                 () -> userService.getUser(uuid)
         ).isInstanceOf(NotFound.class);
+    }
+
+    @Test
+    void makeUuid() {
+        String uuid = UUID.randomUUID().toString();
     }
 
 }

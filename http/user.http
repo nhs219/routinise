@@ -1,0 +1,4 @@
+### getUser
+GET http://localhost:8080/user/d6362ecc-1cd6-4375-a03f-7800851d41f1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNTQ1NDk2ZS1jMmQzLTQ0ZWQtODAwZS0xMzliZmJhZjU1NzI6VVNFUiIsImlzcyI6Im5oczIxOSIsImlhdCI6MTcwNTQxNDMxOCwiZXhwIjoxNzA1NDI1MTE4fQ.ithWKwbxFSj6Kpdl1qJp1eo8M6Ffpv_X3cLZ9bDvbBY
+
