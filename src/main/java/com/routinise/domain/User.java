@@ -5,8 +5,6 @@ import com.routinise.response.UserResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
@@ -18,7 +16,7 @@ public class User extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
-    private String uuid;
+    private String userId;
 
     private String nickname;
 
@@ -31,7 +29,7 @@ public class User extends BaseTimeEntity{
 
     @Builder
     public User(String nickname, String phone, String password, Role role) {
-        this.uuid = UUID.randomUUID().toString();
+        this.userId = UUID.randomUUID().toString();
         this.nickname = nickname;
         this.phone = phone;
         this.password = password;
@@ -54,5 +52,11 @@ public class User extends BaseTimeEntity{
                 .createdDate(this.getCreatedDateTime())
                 .updatedDate(this.getUpdatedDateTime())
                 .build();
+    }
+
+    public void updateUser(String phone, String password, String nickname) {
+        this.phone = phone;
+        this.password = password;
+        this.nickname = nickname;
     }
 }

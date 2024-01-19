@@ -1,10 +1,12 @@
 package com.routinise.controller;
 
 import com.routinise.domain.UserAuthorize;
+import com.routinise.request.UserUpdate;
 import com.routinise.response.UserResponse;
 import com.routinise.service.UserService;
 import com.routinise.utils.SecurityUtils;
 import io.jsonwebtoken.Header;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,5 +28,12 @@ public class UserController {
         String userId = SecurityUtils.getUserId(authentication);
 
         return userService.getUser(userId);
+    }
+
+    @PutMapping
+    public void updateUser(@RequestBody @Valid UserUpdate userUpdate, Authentication authentication) {
+        String userId = SecurityUtils.getUserId(authentication);
+
+        userService.updateUser(userUpdate, userId);
     }
 }
