@@ -3,6 +3,7 @@ package com.routinise.request;
 import com.routinise.domain.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.Builder;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,9 +20,16 @@ public class UserUpdate {
     private String password;
 
     @NotBlank(message = "닉네임을 입력해주세요.")
-    private String nickName;
+    private String nickname;
+
+    @Builder
+    public UserUpdate(String phone, String password, String nickname) {
+        this.phone = phone;
+        this.password = password;
+        this.nickname = nickname;
+    }
 
     public void userForUpdate(User user, PasswordEncoder encoder) {
-        user.updateUser(phone, encoder.encode(password), nickName);
+        user.updateUser(phone, encoder.encode(password), nickname);
     }
 }
