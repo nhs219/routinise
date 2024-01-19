@@ -41,10 +41,8 @@ public class AuthServiceImpl implements AuthService {
                 .filter(u -> passwordEncoder.matches(login.getPassword(), u.getPassword()))
                 .orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다."));
 
-        String token = jwtTokenProvider.createToken(String.format("%s:%s", user.getUuid(), user.getRole()));
+        String token = jwtTokenProvider.createToken(String.format("%s:%s", user.getUserId(), user.getRole()));
 
         return user.makeLoginResponse(token);
     }
-
-
 }
