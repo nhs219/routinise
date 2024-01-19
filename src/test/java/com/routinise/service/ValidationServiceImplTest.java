@@ -37,7 +37,7 @@ class ValidationServiceImplTest {
                 .build();
 
         Assertions.assertThatThrownBy(() -> validationService.checkDuplicateNickName(nickNameCheck))
-                .isInstanceOf(Duplicate.class); ad
+                .isInstanceOf(Duplicate.class);
     }
 
 }
