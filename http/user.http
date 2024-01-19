@@ -1,4 +1,18 @@
 ### getUser
-GET http://localhost:8080/user/d6362ecc-1cd6-4375-a03f-7800851d41f1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlNTQ1NDk2ZS1jMmQzLTQ0ZWQtODAwZS0xMzliZmJhZjU1NzI6VVNFUiIsImlzcyI6Im5oczIxOSIsImlhdCI6MTcwNTQxNDMxOCwiZXhwIjoxNzA1NDI1MTE4fQ.ithWKwbxFSj6Kpdl1qJp1eo8M6Ffpv_X3cLZ9bDvbBY
+GET http://localhost:8280/user/mypage
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MjdmZWU5Yi1lYmMzLTQ1NGUtODQzOS1kZjBlOWZkYjQyMzI6VVNFUiIsImlzcyI6Im5oczIxOSIsImlhdCI6MTcwNTY0Mzk4MiwiZXhwIjoxNzA1NjU0NzgyfQ.f2-70UTzuXmr0LvLiRJT9Ku1cY4HAUhTDfVlk5sU9Gs
 
+### getUser
+GET http://localhost:8280/user/mypage
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MjA1ODhlZi0xZWZmLTQzYTEtYmM3ZC1mYTM0NzNhOGUxMWM6VVNFUiIsImlzcyI6Im5oczIxOSIsImlhdCI6MTcwNTY0NTg2NSwiZXhwIjoxNzA1NjU2NjY1fQ.qdMUhlDbgFOwxeYrSqcgiVGYBn2mQg_pBKP1EeNYpiE
+
+### updateUser
+PUT http://localhost:8280/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4NTYxMGRkZS0zMjA4LTQyNjUtODc3ZS1mNWM3ZWUwMDJiMGM6VVNFUiIsImlzcyI6Im5oczIxOSIsImlhdCI6MTcwNTY0ODkxOCwiZXhwIjoxNzA1NjU5NzE4fQ.gV_hbQglbXB0lOsBmPPKQOy38XhA5zXFsabYjsgHLYY
+Content-Type: application/json
+
+{
+  "phone": "01012341234",
+  "password": "Passwo12",
+  "nickName": "test"
+}

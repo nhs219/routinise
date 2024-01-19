@@ -1,6 +1,6 @@
 ### signup
 
-POST http://localhost:8080/auth/signup
+POST http://localhost:8280/auth/signup
 Content-Type: application/json
 
 {
@@ -10,9 +10,19 @@ Content-Type: application/json
   "role": "USER"
 }
 
+### login
+
+POST http://localhost:8280/auth/login
+Content-Type: application/json
+
+{
+  "phone": "01012341234",
+  "password": "Password123"
+}
+
 ### signup2
 
-POST http://localhost:8080/auth/signup
+POST http://localhost:8280/auth/signup
 Content-Type: application/json
 
 {
@@ -22,12 +32,14 @@ Content-Type: application/json
   "role": "USER"
 }
 
-### login
+### login2
 
-POST http://localhost:8080/auth/login
+POST http://localhost:8280/auth/login
 Content-Type: application/json
 
 {
   "phone": "01012341235",
   "password": "Passwo123"
 }
+
+
