@@ -14,7 +14,7 @@ public class ValidationServiceImpl implements ValidationService{
     @Override
     public void checkDuplicateNickName(NickNameCheck nickNameCheck) {
         String nickName = nickNameCheck.getNickName();
-        if (userRepository.countByNickName(nickName) > 0) {
+        if (userRepository.countByNickname(nickName) > 0) {
             throw new Duplicate("이미 사용중인 닉네임입니다.");
         }
     }
