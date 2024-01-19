@@ -11,4 +11,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findByPhone(String phone);
 
     Optional<User> findByUuid(String uuid);
+
+    int countByNickname(String nickname);
 }
