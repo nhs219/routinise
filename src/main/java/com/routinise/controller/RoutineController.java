@@ -1,9 +1,10 @@
 package com.routinise.controller;
 
+import com.routinise.domain.AdminAuthorize;
 import com.routinise.request.RoutineCreate;
 import com.routinise.response.RoutineResponse;
 import com.routinise.service.RoutineService;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;

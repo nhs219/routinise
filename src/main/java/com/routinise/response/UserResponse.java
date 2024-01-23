@@ -12,15 +12,15 @@ import java.time.LocalDateTime;
 public class UserResponse {
 
     private String nickName;
-    private String phone;
+    private String email;
     private Role role;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
     @Builder
-    public UserResponse(String nickName, String phone, Role role, LocalDateTime createdDate, LocalDateTime updatedDate) {
+    public UserResponse(String nickName, String email, Role role, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.nickName = nickName;
-        this.phone = phone;
+        this.email = email;
         this.role = role;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;

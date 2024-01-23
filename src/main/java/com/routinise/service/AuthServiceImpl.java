@@ -24,8 +24,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void signup(Signup userCreate) {
-        if (userRepository.countByPhone(userCreate.getPhone()) > 0) {
-            throw new Duplicate("이미 가입된 아이디입니다.");
+        if (userRepository.countByEmail(userCreate.getEmail()) > 0) {
+            throw new Duplicate("이미 가입된 이메일입니다.");
+        }
+
+        if (userRepository.countByNickname(userCreate.getNickname()) > 0) {
+            throw new Duplicate("이미 가입된 닉네임입니다.");
         }
 
         userRepository.save(userCreate.makeUser(passwordEncoder));
@@ -33,14 +37,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse login(Login login) {
-        User user = userRepository.findByPhone(login.getPhone())
+        User user = userRepository.findByEmail(login.getEmail())
                 .filter(u -> passwordEncoder.matches(login.getPassword(), u.getPassword()))
                 .orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다."));
 
-        String token = jwtTokenProvider.createToken(String.format("%s:%s", user.getUuid(), user.getRole()));
+        String token = jwtTokenProvider.createToken(String.format("%s:%s", user.getUserId(), user.getRole()));
 
         return user.makeLoginResponse(token);
     }
-
-
 }

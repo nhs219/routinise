@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -50,7 +51,7 @@ class RoutineServiceTest {
         routineService.createRoutine(routine);
 
         //then
-        Assertions.assertThat(routineRepository.count()).isEqualTo(1);
+        assertThat(routineRepository.count()).isEqualTo(1);
     }
 
     @Test
@@ -71,13 +72,15 @@ class RoutineServiceTest {
         RoutineResponse routine = routineService.getRoutine(requestRoutine.getId());
 
         //then
-        Assertions.assertThat(routine.getTitle()).isEqualTo("test");
+        assertThat(routine.getTitle()).isEqualTo("test");
     }
 
     @Test
     @DisplayName("routine 단건 조회 오류 테스트")
     void getRoutine_exception() {
-        assertThrows(IllegalArgumentException.class, () -> routineService.getRoutine(1L));
+        assertThatThrownBy(
+                () -> routineService.getRoutine(1L)
+        ).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -101,6 +104,6 @@ class RoutineServiceTest {
         List<RoutineResponse> response = routineService.getRoutines(pageable);
 
         //then
-        Assertions.assertThat(response.size()).isEqualTo(5);
+        assertThat(response.size()).isEqualTo(5);
     }
 }

@@ -1,18 +1,22 @@
 ### createRoutine
 POST http://localhost:8080/routines
+#Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2ZmY5OTZmOS1jOTg2LTQ2NDAtODhiNS04NzA1YTk4MWEwNjA6QURNSU4iLCJpc3MiOiJuaHMyMTkiLCJpYXQiOjE3MDUxNTczOTgsImV4cCI6MTcwNTE2ODE5OH0.20UAv82h3du1O3YYKs6br9E2GuId9IqOVPS1h_H9HhU
 Content-Type: application/json
 
 {
-    "title":"title-1",
-    "content":"content-1",
-    "alarmTime": "12:00",
-    "alarmYn": "Y",
-    "startDate": "2024-01-05",
-    "endDate": "9999-12-31"
+  "title": "title-1",
+  "content": "content-1",
+  "alarmTime": "12:00",
+  "alarmYn": "Y",
+  "startDate": "2024-01-05",
+  "endDate": "9999-12-31"
 }
 
 ### getRoutine
 GET http://localhost:8080/routines/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2ZmY5OTZmOS1jOTg2LTQ2NDAtODhiNS04NzA1YTk4MWEwNjA6QURNSU4iLCJpc3MiOiJuaHMyMTkiLCJpYXQiOjE3MDUxNTczOTgsImV4cCI6MTcwNTE2ODE5OH0.20UAv82h3du1O3YYKs6br9E2GuId9IqOVPS1h_H9HhU
 
 ### getRoutines
 GET http://localhost:8080/routines?page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxZDdiOTFkYi03ZDcwLTQzZTYtYjJmYi04NzA0YTZmZmVkN2Y6QURNSU4iLCJpc3MiOiJuaHMyMTkiLCJpYXQiOjE3MDUxNTY5MTQsImV4cCI6MTcwNTE2NzcxNH0.HiS1o89iyiypixnlpJ6YuYapy0madrPZSpGl4HO3FLE
+
