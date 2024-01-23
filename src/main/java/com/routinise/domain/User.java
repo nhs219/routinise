@@ -20,7 +20,7 @@ public class User extends BaseTimeEntity{
 
     private String nickname;
 
-    private String phone;
+    private String email;
 
     private String password;
 
@@ -28,10 +28,10 @@ public class User extends BaseTimeEntity{
     private Role role;
 
     @Builder
-    public User(String nickname, String phone, String password, Role role) {
+    public User(String nickname, String email, String password, Role role) {
         this.userId = UUID.randomUUID().toString();
         this.nickname = nickname;
-        this.phone = phone;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
@@ -47,15 +47,15 @@ public class User extends BaseTimeEntity{
     public UserResponse makeUserResponse() {
         return UserResponse.builder()
                 .nickName(nickname)
-                .phone(phone)
+                .email(email)
                 .role(role)
                 .createdDate(this.getCreatedDateTime())
                 .updatedDate(this.getUpdatedDateTime())
                 .build();
     }
 
-    public void updateUser(String phone, String password, String nickname) {
-        this.phone = phone;
+    public void updateUser(String email, String password, String nickname) {
+        this.email = email;
         this.password = password;
         this.nickname = nickname;
     }

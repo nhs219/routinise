@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @UserAuthorize
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/mypage")
+    @GetMapping
     public UserResponse getUser(Authentication authentication) {
         String userId = SecurityUtils.getUserId(authentication);
 
